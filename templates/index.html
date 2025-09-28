@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Erik Göransson-Gaspar</title>
+{% endblock %}
+
+{% block main %}
+<p>
+Hej! I'm a Swedish master's student of mathematical statistics at Lund University. I am primarily interested in financial statistics and inference on stochastic processes, but I get around. On this blog I post about my recent projects, with less-than-publishable rigor.
+</p>
+
+<article class="article_card">
+  <a href="/mastermind"><h3>Optimal Mastermind</h3></a>
+  <p>
+  Remember the game Mastermind, where you have to guess a secret color combination? I explain how we can use information theory to play it optimally. Play around with the interactive game!
+  </p>
+</article>
+
+<article class="article_card">
+  <a href="/bachelors-thesis"><h3>Forecasting Crop Yields</h3></a>
+  <p>
+  Regularized regression techniques allows us to improve the crop yields models of the Swedish Department of Agriculture by up to 40 %! By modeling multiple regions simultaneously, we can get even better results. This was my bachelor's thesis, written in Swedish witha a summary in English.
+  </p>
+</article>
+{% endblock %}

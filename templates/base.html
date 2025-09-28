@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='icon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='icon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='icon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.zinc.min.css" >
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}" >
+    <script>
+      window.MathJax = {
+        chtml: {
+          scale: 1,  // shrink math relative to surrounding text
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    {% block head %}
+    <title>Erik Göransson-Gaspar</title>
+    {% endblock %}
+  </head>
+
+  <body class="container" style="max-width: var(--content-max-width);">
+    <header style="display: flex; margin-top: 1rem;">
+      <a href="/" style="flex: 1;">
+        <h1 style="display: inline;">Erik Göransson-Gaspar</h1>
+      <a>
+      <a href='{{url_for('static', filename='doc/CV.pdf')}}' style="margin: 0 .8rem; padding-top:5px;">
+        <h2 style="display:inline; margin: 0;">CV</h2>
+      </a>
+      <a href='https://github.com/ErikGoranssonGaspar' target="_blank" rel="noopener noreferrer">
+        <img id="github_logo" style="width:2.1rem; vertical-align: top; margin: 0 .8rem;" src="{{url_for('static', filename='github.svg')}}">
+      </a>
+    </header>
+    
+    <hr style="margin: 0;">
+
+    <main>
+      {% block main %}
+      {% endblock %}
+    </main>
+    
+    <footer style="text-align: center; padding-top: 0;">
+      <hr style="margin-top: 0;">
+      <p>erikedwardgoransson@gmail.com</p>
+    </footer>
+  </body>
+</html>

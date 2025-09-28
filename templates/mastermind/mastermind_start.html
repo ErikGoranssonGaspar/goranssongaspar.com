@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Optimal Mastermind</title>
+<script src="https://unpkg.com/hyperscript.org@0.9.14"></script>
+<script src="https://unpkg.com/htmx.org@2.0.4"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/mastermind/general.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/mastermind/dropdown.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/mastermind/circle.css') }}">
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+<script>
+  function get_data() {
+          const allowed = ['red', 'blue', 'yellow', 'green', 'orange', 'purple', 'black', 'white'];
+
+          const colors = Array.from(document.querySelectorAll('.history .circle'))
+            .filter(el => !el.closest('.dropdown-menu'))
+            .map(el =>
+              allowed.find(color => el.classList.contains(color))
+            )
+            .filter(Boolean);
+
+          const secretKey = document.getElementById('secret_key')?.textContent.trim();
+          if (secretKey) {
+            colors.unshift(secretKey);  // add at start
+          }
+
+          return colors;
+        }
+</script>
+{% endblock %}
+
+{% block main %}
+<dialog>
+  <article>
+    <header>
+      <button aria-label="Close" rel="prev" _="on click remove @open from closest <dialog/>"></button>
+<span>How to play Mastermind</span>
+    </header>
+    <p>
+    The Code Master has chosen a secret code consisting of four pegs, each of which can be one of six colors. You win Mastermind by correctly guessing the code. After each wrong guess the Code Master will tell you how close you were with a series of black and white pegs.
+    </p>
+    <div style="
+      text-align: center;
+      margin: 1em 0;
+      vertical-align: middle;
+    ">
+      <div class="circle black"></div> 
+      <div class="circle black"></div> 
+      <div class="circle white"></div> 
+    </div>
+    <p>
+    You get a black peg for every part of your guess which had the right colored peg in the right place. Each white peg means that your contained a peg with the right color, but in the wrong place. If you get no pegs in response by the Code Master, then none of the colors you guessed are part of the secret code.
+          </p>
+  </article>
+</dialog>
+<span id="secret_key">{{secret_key.string}}</span>
+<div class="mastermind">
+  <article>
+    <header>
+      <h3>MASTERMIND</h3>
+      <a id="how-to-play-button" style="color: var(--text-color); text-decoration-color: var(--text-color);" _="on click add @open to previous <dialog/>">How to play</a>
+    </header>
+    <p>I have chosen a secret code. Try to guess it!</p>
+    <div class="history">
+      <div class="history-entry">
+        <div class="guess">
+          {% for start_color in ['red', 'blue', 'yellow', 'green'] %}
+          <div class="dropdown">
+            <div class="circle {{start_color}} dropdown-toggle"></div>
+            <div class="dropdown-menu invisible" _="
+              on click from previous .dropdown-toggle
+              add .invisible to .dropdown-menu
+              then remove .invisible from me
+            ">
+              {% set colors = ['red', 'blue', 'yellow', 'green', 'orange', 'purple'] %}
+            {% for color in colors %}
+              <div class="circle {{color}}" _="
+              on click 
+              remove .red from the previous .dropdown-toggle 
+              then remove .blue from the previous .dropdown-toggle
+              then remove .yellow from the previous .dropdown-toggle
+              then remove .green from the previous .dropdown-toggle
+              then remove .orange from the previous .dropdown-toggle
+              then remove .purple from the previous .dropdown-toggle
+              then add .{{color}} to the previous .dropdown-toggle
+            "></div><br>
+              {% endfor %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <button hx-put="/guess" hx-vals="js:{...get_data()}" hx-target="closest .mastermind" hx-swap="outerHTML">Guess</button>
+      </div>
+    </div>
+  </article>
+  <section class="mastermind-bot">
+    <p>{{sug_guess | length}} possible moves ({{sug_guess | length | log2 | round(2)}} bits)</p>
+    <h1>BEST GUESSES</h1>
+    {% set num_sugs = 6 %}
+        {% for guess, entropy in sug_guess[:num_sugs] %}
+    <div class="best-guess">
+      {% for dig in guess.key %}
+      <div class="circle {{colorcode[dig]}}"></div>
+      {% endfor %}
+      <p>{{entropy | round(2)}} bits</p>
+    </div>
+    {% endfor %}
+        {% if sug_guess | length > num_sugs %}
+    <div class="ellipsis">&vellip;</div>
+    {% endif %}
+  </section>
+</div>
+  <section class="article_body">
+    {% markdown %}
+      {% include 'optimal_mastermind.md' %}
+    {% endmarkdown %}
+  </section>
+{% endblock %}

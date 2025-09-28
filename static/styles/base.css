@@ -1,0 +1,58 @@
+:root {
+  --blackboard-green: rgb(39, 76, 67);
+  background-color: var(--blackboard-green);
+
+  --text-color: #E0F0E9;
+  --pico-color: var(--text-color);
+  --pico-h1-color: var(--text-color);
+  --pico-h2-color: var(--text-color);
+  --pico-h3-color: var(--text-color);
+  --pico-h4-color: var(--text-color);
+  --pico-h5-color: var(--text-color);
+  --pico-h6-color: var(--text-color);
+
+  --pico-primary: #e6bb12;
+  --pico-primary-hover: #c69c0b;
+  --content-max-width: 80ch;
+  --pico-font-family: "CMU Serif", serif;
+  --line-width: 2px;
+  --border-radius: 5px;
+}
+
+main p {
+  text-align: justify;
+}
+
+
+a {
+  text-decoration: none
+}
+
+a>h1:hover, a>h2:hover, a>h3:hover {
+  text-decoration: underline; 
+  text-decoration-color: var(--text-color);
+  text-decoration-thickness: 2px;
+}
+
+#github_logo:hover {
+  filter: brightness(65%);
+}
+
+hr {
+  border-top: var(--line-width) solid var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+.article_card {
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: none;
+  border: solid var(--text-color) var(--line-width); 
+  border-radius: var(--border-radius);
+}
+
+.article_card > p {
+  margin: 0;
+}

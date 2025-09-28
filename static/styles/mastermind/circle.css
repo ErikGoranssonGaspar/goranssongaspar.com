@@ -1,0 +1,38 @@
+.circle {
+  width: 40px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 4px;
+}
+.circle.red {
+  background-color: #FF4C4C;
+}
+
+.circle.blue {
+  background-color: #2979FF;
+}
+
+.circle.green {
+  background-color: #00C853;
+}
+
+.circle.yellow {
+  background-color: #FFEA00;
+}
+
+.circle.orange {
+  background-color: #FF9100;
+}
+
+.circle.purple {
+  background-color: #D500F9;
+}
+
+.circle.white {
+  background-color: var(--text-color);
+}
+
+.circle.black {
+  background-color: #1C1C1C;
+}

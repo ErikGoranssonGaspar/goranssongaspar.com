@@ -1,0 +1,153 @@
+.mastermind {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: center;
+  text-align: center;
+  border: solid var(--text-color) var(--line-width);
+  border-radius: var(--border-radius);
+  margin-bottom: 1.5rem;
+}
+
+.mastermind article {
+  background-color: rgba(0, 0, 0, 0);
+  display: inline-block;
+  margin-right: 0 50px;
+  min-height: 30em;
+  flex: 1;
+  box-shadow: none;
+  padding: 25px;
+}
+
+article header {
+  border-style: none;
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+.mastermind article header {
+  background-color: rgba(0, 0, 0, 0);
+  text-align: center;
+  border-style: none;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+article header span {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+article header a {
+  color: rgba(96, 96, 96, 0.5);
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: underline;
+  text-decoration-color: rgba(96, 96, 96, 0.5);
+}
+
+.history {
+  width: 370px;
+}
+
+#secret_key {
+  display: none;
+}
+
+.history-entry {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 240px 1fr;
+}
+
+.guess {
+  margin: 10px;
+  display: inline-block;
+}
+
+button {
+  flex: 1;
+  margin: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-size: 25px;
+  font-weight: bold;
+  color: var(--text-color);
+  background-color: var(--blackboard-green);
+  border: solid var(--text-color) var(--line-width);
+  border-radius: var(--border-radius);
+  font-weight: normal;
+}
+
+.response {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  margin: 8px;
+  margin-left: 6px;
+}
+
+.response .circle,
+dialog .circle {
+  width: 20px;
+  margin: 6px;
+}
+
+.mastermind-bot {
+  display: inline-block;
+  margin-bottom: 50px;
+  margin-right: 25px;
+  margin-left: 25px;
+  margin-top: 68px;
+  text-align: left;
+  width: 15em;
+  min-width: 15em;
+}
+
+.mastermind-bot h1 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.best-guess {
+  margin-left: -4px;
+  padding: 0;
+}
+
+.mastermind-bot .best-guess .circle {
+  width: 20px;
+  margin: 6px;
+  margin-top: 0;
+  vertical-align: middle;
+}
+
+.best-guess p {
+  display: inline-block;
+}
+
+.mastermind-bot .ellipsis {
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+}
+
+.text h1 {
+  font-size: 25px;
+}
+
+dialog article, dialog article header {
+  background-color: var(--blackboard-green);
+}
+
+dialog article {
+  border: solid var(--text-color) var(--line-width);
+  border-radius: var(--border-radius);
+}

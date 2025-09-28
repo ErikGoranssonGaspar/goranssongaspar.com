@@ -1,0 +1,33 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px;
+  border-radius: var(--border-radius);
+  border: solid var(--text-color) var(--line-width);
+  background-color: var(--blackboard-green);
+}
+
+.invisible {
+  display: none;
+}
+
+.dropdown-menu .circle {
+  margin: 4px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}

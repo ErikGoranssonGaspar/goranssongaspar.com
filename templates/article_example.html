@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Title</title>
+{% endblock %}
+
+{% block main %}
+<section class="article_body">
+{% markdown %}
+  {% include 'optimal_mastermind.md' %}
+{% endmarkdown %}
+</section>
+{% endblock %}
