@@ -14,8 +14,8 @@
           scale: 1,  // shrink math relative to surrounding text
         },
         tex: {
-          inlineMath: [['$', '$']],   // $...$ inline
-          displayMath: [['$$', '$$']], // $$...$$ block
+          inlineMath: [['$', '$'], ['\\(', '\\)']],   // $...$ and \(...\)
+          displayMath: [['$$', '$$'], ['\\[', '\\]']], // $$...$$ and \[...\]
           processEscapes: true,         // allows \$ for literal dollar
           processEnvironments: true, // enables envs. like \begin{align}
         }
