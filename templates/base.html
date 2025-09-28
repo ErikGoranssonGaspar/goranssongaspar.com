@@ -12,6 +12,12 @@
       window.MathJax = {
         chtml: {
           scale: 1,  // shrink math relative to surrounding text
+        },
+        tex: {
+          inlineMath: [['$', '$']],   // $...$ inline
+          displayMath: [['$$', '$$']], // $$...$$ block
+          processEscapes: true,         // allows \$ for literal dollar
+          processEnvironments: true, // enables envs. like \begin{align}
         }
       };
     </script>
