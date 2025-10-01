@@ -41,10 +41,14 @@
 
   --pico-primary: #e6bb12;
   --pico-primary-hover: #c69c0b;
+  --pico-accordion-open-summary-color: var(--text-color);
   --content-max-width: 80ch;
   --pico-font-family: "CMU Serif", serif;
   --line-width: 2px;
   --border-radius: 5px;
+
+  --pico-icon-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(224, 240, 233)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  --pico-icon-close: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(224, 240, 233)' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E");
 }
 
 main p {
@@ -83,4 +87,28 @@ h1, h2, h3, h4, h5, h6 {
 
 .article_card > p {
   margin: 0;
+}
+
+.figure {
+  display: block;
+  margin: auto;
+}
+
+.article_body h2, .article_body h3 {
+margin-top: 1rem;
+margin-bottom: 0.5rem;
+}
+
+.article_card h2, .article_card h3 {
+margin-bottom: 0.5rem;
+}
+
+details {
+  padding: 1rem;
+  border: solid var(--text-color) var(--line-width);
+  border-radius: var(--border-radius);
+}
+
+details p {
+  margin-bottom: 0;
 }

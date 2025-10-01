@@ -18,6 +18,10 @@ def index():
 def bachelors_thesis():
     return redirect(url_for('static', filename='doc/bachelors-thesis.pdf'))
 
+@app.route("/binary-AI09")
+def binary_AI09():
+    return render_template('binary-AI09.html')
+
 import mastermind_server
 
 if __name__ == '__main__':
