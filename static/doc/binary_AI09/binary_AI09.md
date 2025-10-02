@@ -207,4 +207,4 @@ At the end of the day, the Archak-Ipeirotis model does not capture the dynamics 
 </ol>
 *Summa summarum*, good work Archak and Ipeirotis! Now it's our turn to pick up where they left off. I'm confident that a good model of prediction market volatility is within reach. 
 
-*Published on October DD, 2025.*
+*Published on October 2, 2025.*
