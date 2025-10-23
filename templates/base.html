@@ -31,10 +31,13 @@
 
   <body class="container" style="max-width: var(--content-max-width);">
     <header style="display: flex; margin-top: 1rem;">
-      <a href="/" style="flex: 1;">
+      <div style="flex: 1;">
         <h1 style="display: inline;">Erik Göransson-Gaspar</h1>
-      <a>
-      <a href='{{url_for('static', filename='doc/CV.pdf')}}' style="margin: 0 .8rem; padding-top:5px;">
+      </div>
+      <a href='/' style="margin: 0 .8rem 0 .4rem; padding-top:5px;">
+        <h2 style="display:inline; margin: 0;">Articles</h2>
+      </a>
+      <a href='{{url_for('static', filename='doc/CV.pdf')}}' style="margin: 0 .4rem 0 .4rem; padding-top:5px;">
         <h2 style="display:inline; margin: 0;">CV</h2>
       </a>
       <a href='https://github.com/ErikGoranssonGaspar' target="_blank" rel="noopener noreferrer">
