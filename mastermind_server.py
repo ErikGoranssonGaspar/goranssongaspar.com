@@ -20,7 +20,6 @@ def mastermind():
 
 @app.route("/guess", methods=["PUT"])
 def guess():
-    secret_key = Key(1364)
     data = [color for i, color in parse_qsl(request.get_data(as_text=True))]
     secret_key, guess, history = parse_response(data)
     history.append((guess, response(secret_key, guess)))
