@@ -16,6 +16,10 @@ jobs:
         username: ErikGoranssonGaspar
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          cd /home/ErikGoranssonGaspar/goranssongaspar.com
+          cd /home/ErikGoranssonGaspar
+          if [ ! -d "goranssongaspar.com" ]; then
+            git clone https://github.com/ErikGoranssonGaspar/goranssongaspar.com.git
+          fi
+          cd goranssongaspar.com
           git pull origin main
           echo "Deployment completed successfully"
