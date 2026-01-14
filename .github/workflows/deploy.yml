@@ -16,10 +16,10 @@ jobs:
         username: ErikGoranssonGaspar
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          cd /home/ErikGoranssonGaspar
-          if [ ! -d "goranssongaspar.com" ]; then
-            git clone https://github.com/ErikGoranssonGaspar/goranssongaspar.com.git
-          fi
-          cd goranssongaspar.com
+          cd /home/ErikGoranssonGaspar/goranssongaspar.com
           git pull origin main
-          echo "Deployment completed successfully"
+          # Add any additional deployment commands here
+          # For example, if you're using virtual environments:
+          # source /home/ErikGoranssonGaspar/.virtualenvs/myenv/bin/activate
+          # pip install -r requirements.txt
+          # python manage.py migrate  # if using Django
