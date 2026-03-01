@@ -4,25 +4,31 @@ from jinja2 import ChoiceLoader, FileSystemLoader
 
 app = Flask(__name__)
 app.jinja_env.add_extension(MarkdownExtension)
-app.jinja_loader = ChoiceLoader([
-    app.jinja_loader,
-    FileSystemLoader(['static/doc'])
-])
+app.jinja_loader = ChoiceLoader([app.jinja_loader, FileSystemLoader(["static/doc"])])
+
 
 @app.route("/")
 def index():
-    return render_template('index.html')
-    #return render_template('base.html')
+    return render_template("index.html")
+    # return render_template('base.html')
+
 
 @app.route("/bachelors-thesis")
 def bachelors_thesis():
-    return redirect(url_for('static', filename='doc/bachelors-thesis.pdf'))
+    return redirect(url_for("static", filename="doc/bachelors-thesis.pdf"))
+
 
 @app.route("/binary-AI09")
 def binary_AI09():
-    return render_template('binary-AI09.html')
+    return render_template("binary-AI09.html")
+
+
+@app.route("/OU-timing")
+def ou_cox_timing_pm():
+    return render_template("ou_cox_timing_pm.html")
+
 
 import mastermind_server
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
