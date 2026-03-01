@@ -8,6 +8,7 @@
     <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.zinc.min.css" >
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}" >
+    <link rel="alternate" type="application/rss+xml" href="{{ url_for('rss_feed') }}" title="Erik Göransson-Gaspar's Blog">
     <script>
       window.MathJax = {
         chtml: {
@@ -42,6 +43,9 @@
       </a>
       <a href='https://github.com/ErikGoranssonGaspar' target="_blank" rel="noopener noreferrer">
         <img id="github_logo" style="width:2.1rem; vertical-align: top; margin: 0 .8rem;" src="{{url_for('static', filename='github.svg')}}">
+      </a>
+      <a href="{{ url_for('rss_feed') }}" style="display: inline-flex; align-items: center;">
+        <img id="rss_logo" style="width:1.5rem; vertical-align: middle; margin: 0 .8rem;" src="{{url_for('static', filename='rss.svg')}}">
       </a>
     </header>
     

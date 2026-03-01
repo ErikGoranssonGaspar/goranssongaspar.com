@@ -87,6 +87,10 @@ a>h1:hover, a>h2:hover, a>h3:hover {
   filter: brightness(65%);
 }
 
+#rss_logo:hover {
+  filter: brightness(65%);
+}
+
 hr {
   border-top: var(--line-width) solid var(--text-color);
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Erik Göransson-Gaspar</title>
+    <link>{{ request.url_root }}</link>
+    <description>Writings on mathematical statistics, latent process-models, Monte Carlo methods, and financial statistics.</description>
+    <language>en</language>
+    <lastBuildDate>{{ posts[0].date|rfc822 }}</lastBuildDate>
+    <atom:link href="{{ url_for('rss_feed', _external=True) }}" rel="self" type="application/rss+xml"/>
+    {% for post in posts %}
+    <item>
+      <title>{{ post.title }}</title>
+      <link>{{ request.url_root }}{{ post.slug }}</link>
+      <guid>{{ request.url_root }}{{ post.slug }}</guid>
+      <description>{{ post.description }}</description>
+      <pubDate>{{ post.date|rfc822 }}</pubDate>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>
