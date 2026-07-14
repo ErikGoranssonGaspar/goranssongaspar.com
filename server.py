@@ -9,6 +9,12 @@ app.jinja_loader = ChoiceLoader([app.jinja_loader, FileSystemLoader(["static/doc
 
 POSTS = [
     {
+        "title": "Final Words on Timing Prediction Markets",
+        "slug": "masters-thesis",
+        "description": '''Timing prediction markets are based on question like "Will Event A occur before time T?"; they're especially interesting in geopolitics. I have spent the last six months elaborating a reduced-form model of these timing markets. More sophisticated techniques are able to achieve reasonable calibration across the entire predictive distribution.''',
+        "date": "2026-07-13",
+    },
+    {
         "title": "A Poisson Model of Timing Prediction Markets",
         "slug": "OU-timing",
         "description": "Prediction markets of the type \"Will Kahmeini be ousted before 2025?\" don't try to forecast the outcome of an event, but its timing. I present the first model of such prediction market prices, based on methods developed for defaultable corporate bonds.",
@@ -54,6 +60,11 @@ def binary_AI09():
 @app.route("/OU-timing")
 def ou_cox_timing_pm():
     return render_template("ou_cox_timing_pm.html")
+
+
+@app.route("/masters-thesis")
+def masters_thesis():
+    return render_template("masters_thesis.html")
 
 
 @app.route("/feed")
