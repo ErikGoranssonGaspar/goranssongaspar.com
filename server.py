@@ -1,7 +1,9 @@
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, Response
 from jinja_markdown2 import MarkdownExtension
 from jinja2 import ChoiceLoader, FileSystemLoader
 from datetime import datetime
+
+import arxiv_filter
 
 app = Flask(__name__)
 app.jinja_env.add_extension(MarkdownExtension)
@@ -73,6 +75,27 @@ def rss_feed():
         render_template("rss.xml", posts=POSTS),
         200,
         {"Content-Type": "application/rss+xml"},
+    )
+
+
+@app.route("/arxiv-feed")
+def arxiv_feed():
+    """Upstream arXiv feed with revisions removed (new and cross only)."""
+    try:
+        body, stale = arxiv_filter.get_feed()
+    except Exception:
+        return Response(
+            "upstream arXiv feed unavailable",
+            status=502,
+            mimetype="text/plain",
+        )
+    return Response(
+        body,
+        mimetype="application/rss+xml",
+        headers={
+            "Cache-Control": f"max-age={arxiv_filter.CACHE_TTL}",
+            "X-Upstream-Stale": "1" if stale else "0",
+        },
     )
 
 
