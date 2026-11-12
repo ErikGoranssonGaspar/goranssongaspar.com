@@ -1,5 +1,5 @@
 ## Modeling Binary Prediction Markets
-Who is going to win your country's next election? I'm sure you have som idea. You could probably also tell me something about how certain you are: "Almost certainly...", "I'm pretty sure...", "If I had to guess..." If I continued to press you and asked for a probability, say to the nearest percentage, then I bet you'd start to struggle. It's hard to quantify your beliefs like that! But I'd really like to know, so I'll offer you a bet. If party X wins the election I'll give you a dollar; if they lose you get nothing. What's the most money you'd be willing to pay to get in on this wager? It's easy to see that this amount implicitly reveals your degree of belief that party X will in fact win.
+Who is going to win your country's next election? I'm sure you have some idea. You could probably also tell me something about how certain you are: "Almost certainly...", "I'm pretty sure...", "If I had to guess..." If I continued to press you and asked for a probability, say to the nearest percentage, then I bet you'd start to struggle. It's hard to quantify your beliefs like that! But I'd really like to know, so I'll offer you a bet. If party X wins the election I'll give you a dollar; if they lose you get nothing. What's the most money you'd be willing to pay to get in on this wager? It's easy to see that this amount implicitly reveals your degree of belief that party X will in fact win.
 
 Bets such as these—or rather contracts which pay out to the holder in this manner—are traded in so called **prediction markets**. They were first introduced (in their modern form) by researchers at the University of Iowa to predict the 1988 U.S. presidential election. Interest has waxed and waned over the years; we are currently in a phase of high activity. Over a billion dollars was traded on the U.S. 2024 presidential election market on just the platform <a target="_blank" href="https://polymarket.com">Polymarket</a>, the current industry leader. 
 
@@ -62,7 +62,7 @@ where $\\Phi$ is the cumulative distribution function of the standard Gaussian. 
 $$
 \\tilde{\\mu } := \\mu \_1 - \\mu\_2 + \\frac{\\alpha }{2}(\\sigma \_1^2 - \\sigma \_2^2) \\quad\\text{and}\\quad \\tilde{\\sigma } = \\sqrt{\\sigma\_1^2+\\sigma \_2^2-2\\rho }
 $$
-is the diffusion and volatility, respectively, of $\\Delta(t)$. 
+are the diffusion and volatility, respectively, of $\\Delta(t)$. 
 
 <details>
   <summary>Proof for the interested reader</summary>
@@ -162,7 +162,7 @@ where $\\varphi$ is the standard Gaussian density and $\\Phi^{-1}$ is the corres
 ### Evaluating Goodness-of-Fit
 Starting from some assumptions about how a binary prediction market behaves, we have derived a model for the market price. How good is this model? Not great, as far as I can tell; let's dig into it! We will evaluate the model's performance only on the market for "Will Trump win the 2024 U.S. Presidential election?" shown above. This is done for brevity; the model behaves similarly on other markets.
 
-Since the model does not allow us to forecast future prices, standard measures of prediction error will not help us evaluate the goodness of fit. We do, however, get an estimate of the instantaneous volatility, which at time $t$ it is simply
+Since the model does not allow us to forecast future prices, standard measures of prediction error will not help us evaluate the goodness of fit. We do, however, get an estimate of the instantaneous volatility, which at time $t$ is simply
 $$
 \\frac{\\varphi\\left(\\Phi ^{-1}[\\pi \_1(t)]\\right)}{\\sqrt{T-t}}.
 $$
@@ -180,13 +180,13 @@ Next, we check how well calibrated the model is to the price data. It predicts t
 $$
 \\pi\_{i+1} \\sim \\mathcal{N}\\left(\\pi\_i, \\frac{\\varphi\\left(\\Phi ^{-1}[\\pi \_1(t\_i)]\\right)^2}{(T-t\_i)^2}(t\_{i+1}-t\_i)\\right)
 $$
-(We have here discretized the price dynamics using an **Euler-Maruyama scheme**.) This allows us to compute confidence interval of arbitrary confidence level. If the model correctly predicts the volatility of the data, then a 95 %-confidence interval ought to cover the true value in 95 % of cases, and so on. Below I have plotted this coverage rate against the corresponding confidence level: 
+(We have here discretized the price dynamics using an **Euler-Maruyama scheme**.) This allows us to compute confidence intervals of arbitrary confidence level. If the model correctly predicts the volatility of the data, then a 95 %-confidence interval ought to cover the true value in 95 % of cases, and so on. Below I have plotted this coverage rate against the corresponding confidence level: 
 
 <img style="width:100%;" class='figure' src="static/doc/binary_AI09/calibration.svg"/>
 
 Perfect model-calibration would show up as a straight diagonal in this diagram. The fact that the modeled confidence intervals consistently cover too many data points supports our previous observation that the model overestimates the true volatility. 
 
-Finally, let's again consider to the returns $r\_i:=\\pi\_i-\\pi\_{i-1}$. Discretizing the model like before, we can derive the distribution of the returns: 
+Finally, let's again consider the returns $r\_i:=\\pi\_i-\\pi\_{i-1}$. Discretizing the model like before, we can derive the distribution of the returns: 
 $$
 r\_i \\sim \\mathcal{N}\\left(0, \\frac{\\varphi\\left(\\Phi ^{-1}[\\pi \_1(t\_i)]\\right)^2}{(T-t\_i)^2}(t\_{i+1}-t\_i)\\right).
 $$
@@ -203,7 +203,7 @@ The normalized returns are too small, compared to the standard Gaussian density,
 At the end of the day, the Archak-Ipeirotis model does not capture the dynamics of a binary prediction market particularly well. It is poorly calibrated and systematically overestimates the price volatility. I don't think, however, that this is much of a failure. The model has zero parameters and therefore uses no historical data to tune itself. On the contrary, the fact that such a model can tell us anything at all about the price process indicates to me that Archak and Ipeirotis' basic structure is solid. They acknowledge as much themselves, when they study an **ARCH-model** of the standardized returns from their original model. The task of future statisticians is to construct more sophisticated models on top of their framework: modeling prediction market contracts as derivatives on unobservable ability processes. I think that the Archak-Ipeirotis model fails in two significant ways:
 <ol>
 <li>They impose unrealistic dynamics on their ability processes for the sake of deriving closed solutions. Monte Carlo techniques could allow us to estimate parameters of more sophisticated processes. For example, a mean reverting <strong>Ornstein-Uhlenbeck process</strong>, with jumps in the mean seems like a good candidate to model the incorporation of new information into the market price.</li>
-<li>The price of a Archak-Ipeirotis model will always converge smoothly to either zero or one, because the market outcome is determined by which ability process is larger at the resolution time. This is not how real prediction markets behave. The U.S. 2024 presidential market prices from the beginning of the article show that by election day there is a significant amount of uncertainty left; once vote counting started the price jumped to one. This could be addressed by an alternative model of market resolution.</li>
+<li>The price of an Archak-Ipeirotis model will always converge smoothly to either zero or one, because the market outcome is determined by which ability process is larger at the resolution time. This is not how real prediction markets behave. The U.S. 2024 presidential market prices from the beginning of the article show that by election day there is a significant amount of uncertainty left; once vote counting started the price jumped to one. This could be addressed by an alternative model of market resolution.</li>
 </ol>
 *Summa summarum*, good work Archak and Ipeirotis! Now it's our turn to pick up where they left off. I'm confident that a good model of prediction market volatility is within reach. 
 
