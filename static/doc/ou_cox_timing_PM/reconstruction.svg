@@ -1109,7 +1109,7 @@ L 672.096826 189.731215
 L 673.719095 190.047977 
 L 675.341364 190.206357 
 L 675.341364 190.206357 
-" clip-path="url(#pae1adaf364)" style="fill: none; stroke: #e6bb12; stroke-width: 2; stroke-linecap: square"/>
+" clip-path="url(#pae1adaf364)" style="fill: none; stroke: #f79a86; stroke-width: 2; stroke-linecap: square"/>
    </g>
    <g id="patch_3">
     <path d="M 50.2 198.521348 
@@ -2016,7 +2016,7 @@ L 672.087961 377.56041
 L 673.714662 358.260117 
 L 675.341364 345.119728 
 L 675.341364 345.119728 
-" clip-path="url(#p319efcb580)" style="fill: none; stroke: #e6bb12; stroke-width: 2; stroke-linecap: square"/>
+" clip-path="url(#p319efcb580)" style="fill: none; stroke: #f79a86; stroke-width: 2; stroke-linecap: square"/>
    </g>
    <g id="patch_8">
     <path d="M 50.2 407.064424 
@@ -3051,7 +3051,7 @@ L 670.474557 607.320134
 L 672.096826 606.215152 
 L 673.719095 606.951807 
 L 673.719095 606.951807 
-" clip-path="url(#p71ebe69e01)" style="fill: none; stroke: #ff7f50; stroke-opacity: 0.5; stroke-width: 2; stroke-linecap: square"/>
+" clip-path="url(#p71ebe69e01)" style="fill: none; stroke: #f2d46b; stroke-opacity: 0.5; stroke-width: 2; stroke-linecap: square"/>
    </g>
    <g id="line2d_78">
     <path d="M 79.968636 595.315491 
@@ -3289,7 +3289,7 @@ L 655.874135 605.026599
 L 665.60775 606.311318 
 L 675.341364 607.688461 
 L 675.341364 607.688461 
-" clip-path="url(#p71ebe69e01)" style="fill: none; stroke: #e6bb12; stroke-width: 2; stroke-linecap: square"/>
+" clip-path="url(#p71ebe69e01)" style="fill: none; stroke: #f79a86; stroke-width: 2; stroke-linecap: square"/>
    </g>
    <g id="patch_13">
     <path d="M 50.2 615.6075 
@@ -3359,7 +3359,7 @@ z
      <path d="M 595.825 455.138652 
 L 606.825 455.138652 
 L 617.825 455.138652 
-" style="fill: none; stroke: #ff7f50; stroke-opacity: 0.5; stroke-width: 2; stroke-linecap: square"/>
+" style="fill: none; stroke: #f2d46b; stroke-opacity: 0.5; stroke-width: 2; stroke-linecap: square"/>
     </g>
     <g id="text_30">
      <!-- Realized -->
@@ -3435,7 +3435,7 @@ z
      <path d="M 595.825 470.471621 
 L 606.825 470.471621 
 L 617.825 470.471621 
-" style="fill: none; stroke: #e6bb12; stroke-width: 2; stroke-linecap: square"/>
+" style="fill: none; stroke: #f79a86; stroke-width: 2; stroke-linecap: square"/>
     </g>
     <g id="text_31">
      <!-- Reconstructed -->

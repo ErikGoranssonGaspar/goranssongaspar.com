@@ -196,3 +196,12 @@ dialog article {
     margin: 0 1rem 1.5rem;
   }
 }
+
+.mastermind button {
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.mastermind button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}

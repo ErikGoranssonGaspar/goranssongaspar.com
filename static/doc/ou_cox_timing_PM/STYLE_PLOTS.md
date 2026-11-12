@@ -31,8 +31,8 @@ All plots use these colors from `Code/goranssongaspar.com/static/styles/base.css
 |-------|----------|--------------|-------|
 | Background | `#274c43` | `--blackboard-green` | Figure/axes background |
 | Text | `#E0F0E9` | `--text-color` | Labels, ticks, titles, spines |
-| Primary (Golden) | `#e6bb12` | `--pico-primary` | Main data lines, histograms |
-| Secondary (Coral) | `#ff7f50` | - | Secondary lines, confidence intervals |
+| Primary (Coral) | `#f79a86` | `--accent` | Main data lines, histograms |
+| Secondary (Chalk yellow) | `#f2d46b` | - | Secondary lines, confidence intervals |
 | Tertiary (Teal) | `#5fb3b3` | - | Third data series |
 | Grid | `#E0F0E9` | - | Grid lines (alpha=0.2) |
 
@@ -41,8 +41,8 @@ All plots use these colors from `Code/goranssongaspar.com/static/styles/base.css
 from plot_style import COLORS
 bg_color = COLORS['bg']           # #274c43
 text_color = COLORS['text']       # #E0F0E9
-primary_color = COLORS['primary'] # #e6bb12
-secondary_color = COLORS['secondary'] # #ff7f50
+primary_color = COLORS['primary'] # #f79a86
+secondary_color = COLORS['secondary'] # #f2d46b
 tertiary_color = COLORS['tertiary']   # #5fb3b3
 ```
 
@@ -208,7 +208,7 @@ ax.plot(historical_dates, historical_prices,
 ax.plot(forecast_dates, forecast_mean, 
         color=COLORS['secondary'], linewidth=2, label='MC Mean')
 
-# Confidence interval (coral fill with transparency)
+# Confidence interval (chalk-yellow fill with transparency)
 ax.fill_between(forecast_dates, lower_bound, upper_bound,
                 color=COLORS['secondary'], alpha=0.3)
 

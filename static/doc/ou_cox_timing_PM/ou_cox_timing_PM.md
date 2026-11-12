@@ -7,14 +7,14 @@ The standard prediction market contract is based on a question of type "Will eve
 
 <figure>
     <img src="static/doc/ou_cox_timing_PM/trump2024daily.svg"/>
-    <figcaption>Figure 1: Yes-price of the outcome market "Will Trump Win the 2024 Presidential Election?".</figcaption>
+    <figcaption><span class="fig-label">Figure 1:</span> Yes-price of the outcome market "Will Trump Win the 2024 Presidential Election?".</figcaption>
 </figure>
 
 Since the winner of the election is not certain until election day, the market price remains far away from zero or one, until the market resolves with a discrete jump. In the following I distinguish between the *yes-price* of a market, which is the price of a contract which pays out if the underlying event occurs and the market resolves to *yes*, and the *no-price*, which is the price of a contract with the opposite pay-out structure. Both yes- and no-contracts are typically tradable. With the new prediction market platforms, another type of market has recently been popularized, based on questions of the type "Will event X occur before event T?". The outcome of some event is not in question here, but rather the timing. I call such markets *timing markets* to distinguish them from the standard *outcome markets*. Figure 2 shows the price history for the timing market "Khamenei out as Supreme Leader of Iran in 2025?". The large price increase in June corresponds to the U.S.-Israeli attacks. 
 
 <figure>
     <img src="static/doc/ou_cox_timing_PM/khameiniOut2025.svg"/>
-    <figcaption>Figure 2: Yes-price of the timing market "Khamenei out as Supreme Leader of Iran in 2025?".</figcaption>
+    <figcaption><span class="fig-label">Figure 2:</span> Yes-price of the timing market "Khamenei out as Supreme Leader of Iran in 2025?".</figcaption>
 </figure>
 
 Although timing markets have been studied before — <a target="_blank" href="https://www.nber.org/system/files/working_papers/w9587/w9587.pdf">Leigh, Wolfers & Zitzewitz (2003)</a> and <a target="_blank" href="https://www.ubplj.org/index.php/jpm/article/view/790">Wörle (2013)</a> examined markets on the ousting of Saddam Hussein and Ghadaffi, respectively — the distinction between them and outcome markets has not yet been properly made. It has not been recognized that timing markets exhibit qualitatively different behavior. If the underlying event does not occur, then *ceteris paribus* the yes-price of a timing market will tend to zero as the end date approaches. If the event occurs, this will instead manifest as a discrete jump to a price of one. Because of this convergence behavior, timing markets should not be modeled in the same way as outcome markets. In the previous post I examined a volatility model for outcome market prices proposed by <a target="_blank" href="https://dl.acm.org/doi/pdf/10.1145/15664.1566414">Archak and Ipeirotis (2009).</a> Here I will present a novel model of timing markets, based on supposing that the underlying event arrives with a doubly stochastic Poisson process driven by an Ornstein-Uhlenbeck intensity. We will evaluate this model on the Khamenei-market. <b>Spoiler warning:</b> it stumbles due to being too stationary.
@@ -111,7 +111,7 @@ This allows us to reconstruct intensity and volatility series from historic pric
 
 <figure>
     <img src="static/doc/ou_cox_timing_PM/reconstruction.svg"/>
-    <figcaption> Figure 3: Intensity and volatility series reconstructed from historic prices for the market "Khamenei out as Supreme Leader of Iran in 2025?".</figcaption>
+    <figcaption> <span class="fig-label">Figure 3:</span> Intensity and volatility series reconstructed from historic prices for the market "Khamenei out as Supreme Leader of Iran in 2025?".</figcaption>
 </figure>
 
 #### Monte Carlo Forecasts
@@ -127,7 +127,7 @@ were significantly different from the ones estimated on the full data. This is a
 <figure>
     <img src="static/doc/ou_cox_timing_PM/forecasts.svg"/>
     <figcaption>
-    Figure 4: Monte Carlo forecasts of market price, intensity and volatility ($n=1000$) using only data available at the forecasting time 6 September. Confidence intervals are derived from the empirical quantiles of the Monte Carlo samples. Reconstructed intensity and volatility series, derived from parameters estimated on both the full and partial data, are included.
+    <span class="fig-label">Figure 4:</span> Monte Carlo forecasts of market price, intensity and volatility ($n=1000$) using only data available at the forecasting time 6 September. Confidence intervals are derived from the empirical quantiles of the Monte Carlo samples. Reconstructed intensity and volatility series, derived from parameters estimated on both the full and partial data, are included.
     </figcaption>
 </figure>
 
@@ -157,7 +157,7 @@ Under the assumed model, we can estimate this probability by simulating a large 
         </div>
     </div>
     <figcaption>
-        Figure 5: Estimated probability of resolving within a horizon from time $t_0 = 6$ September for (a) well-calibrated simulated data and (b) real data from the market "Khamenei out as Supreme Leader of Iran in 2025?"
+        <span class="fig-label">Figure 5:</span> Estimated probability of resolving within a horizon from time $t_0 = 6$ September for (a) well-calibrated simulated data and (b) real data from the market "Khamenei out as Supreme Leader of Iran in 2025?"
     </figcaption>
 </figure>
 
@@ -178,7 +178,7 @@ If the latent Poisson model fits the data well, then the standardized residuals 
 <figure>
     <img src="static/doc/ou_cox_timing_PM/diagnostics.svg"/>
     <figcaption>
-       Figure 6: Histogram, quantile-quantile plot, and autocorrelation function of standardized residuals and their squares. The one-step prediction residuals were computed from the market "Khamenei out as Supreme Leader of Iran in 2025?".
+       <span class="fig-label">Figure 6:</span> Histogram, quantile-quantile plot, and autocorrelation function of standardized residuals and their squares. The one-step prediction residuals were computed from the market "Khamenei out as Supreme Leader of Iran in 2025?".
    </figcaption>
 </figure>
 
@@ -187,7 +187,7 @@ We can get a closer look at how well the model predicts price volatility by cons
 <figure>
     <img src="static/doc/ou_cox_timing_PM/ci_coverage.svg"/>
     <figcaption>
-        Figure 7: Empirical coverage of Gaussian one-step prediction intervals for the market "Khamenei out as Supreme Leader of Iran in 2025?" plotted against nominal coverage, with the diagonal indicating perfect calibration.
+        <span class="fig-label">Figure 7:</span> Empirical coverage of Gaussian one-step prediction intervals for the market "Khamenei out as Supreme Leader of Iran in 2025?" plotted against nominal coverage, with the diagonal indicating perfect calibration.
     </figcaption>
 </figure>
 

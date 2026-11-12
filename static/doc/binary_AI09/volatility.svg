@@ -2275,7 +2275,7 @@ L 541.919467 38.571648
 L 542.044985 38.914425 
 L 542.107727 38.743036 
 L 542.107727 38.743036 
-" clip-path="url(#p4f0b000a5e)" style="fill: none; stroke: #e6bb12; stroke-width: 2; stroke-linecap: square"/>
+" clip-path="url(#p4f0b000a5e)" style="fill: none; stroke: #f79a86; stroke-width: 2; stroke-linecap: square"/>
    </g>
    <g id="patch_3">
     <path d="M 57.17 147.17625 
@@ -5760,7 +5760,7 @@ L 541.731172 225.513922
 L 541.793931 226.510834 
 L 542.107727 286.258158 
 L 542.107727 286.258158 
-" clip-path="url(#pd334657edf)" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #ff7f50; stroke-width: 2"/>
+" clip-path="url(#pd334657edf)" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #f2d46b; stroke-width: 2"/>
    </g>
    <g id="patch_8">
     <path d="M 57.17 297.515 
@@ -5881,7 +5881,7 @@ z
      <path d="M 66.17 210.290312 
 L 76.17 210.290312 
 L 86.17 210.290312 
-" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #ff7f50; stroke-width: 2"/>
+" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #f2d46b; stroke-width: 2"/>
     </g>
     <g id="text_25">
      <!-- Realized Volatility -->

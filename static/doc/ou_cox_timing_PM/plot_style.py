@@ -7,9 +7,9 @@ from matplotlib.dates import DateFormatter
 COLORS = {
     'bg': '#274c43',        # rgb(39, 76, 67) - blackboard green
     'text': '#E0F0E9',      # off-white/mint
-    'primary': '#e6bb12',   # golden yellow
+    'primary': '#f79a86',   # coral - site accent colour (--accent)
     'grid': '#E0F0E9',      # off-white for grid lines
-    'secondary': '#ff7f50', # coral/salmon - complementary warm color
+    'secondary': '#f2d46b', # chalk yellow - second warm series
     'tertiary': '#5fb3b3',  # teal - cool accent color
 }
 

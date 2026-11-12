@@ -40,8 +40,14 @@
   --pico-h5-color: var(--text-color);
   --pico-h6-color: var(--text-color);
 
-  --pico-primary: #e6bb12;
-  --pico-primary-hover: #c69c0b;
+  /* Coral accent: used only for links, interactive states and figure labels.
+     #F79A86 is the most saturated coral that keeps 4.5:1 contrast on the green. */
+  --accent: #F79A86;
+  --accent-faint: rgba(247, 154, 134, 0.45);  /* resting link underline */
+  --accent-tint: rgba(247, 154, 134, 0.35);   /* text selection */
+  --pico-primary: var(--accent);
+  --pico-primary-hover: var(--accent);
+  --pico-primary-focus: transparent;  /* replaced by the outline under "Focus" below */
   --pico-accordion-open-summary-color: var(--text-color);
   --content-max-width: 80ch;
   --pico-font-family: "CMU Serif", serif;
@@ -98,17 +104,19 @@ main {
   line-height: 1.2;
 }
 
+/* Header and footer links are chrome: off-white at rest, coral on hover. */
 .site-name a,
 .site-nav a,
 .site-footer a {
   color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.15s;
 }
 
 .site-name a:hover,
 .site-nav a:hover,
 .site-footer a:hover {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
+  color: var(--accent);
 }
 
 /* Invisible padding enlarges the tap target without moving the icon. */
@@ -118,20 +126,30 @@ main {
   margin: -0.5rem;
 }
 
+/* Icons are drawn as masks filled with the link colour, so they can turn coral on hover. */
+.icon {
+  display: block;
+  background-color: currentColor;
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
+}
+
 .icon-github {
+  --icon: url("/static/github.svg");
   height: 1.15em;
+  aspect-ratio: 98 / 96;
 }
 
 .icon-linkedin {
+  --icon: url("/static/linkedin.svg");
   height: 1.1em;  /* the glyph only fills 7/8 of its box, so this matches the other icons visually */
+  aspect-ratio: 448 / 512;
 }
 
 .icon-rss {
+  --icon: url("/static/rss.svg");
   height: 0.85em;
-}
-
-.icon-link:hover img {
-  filter: brightness(65%);
+  aspect-ratio: 1;
 }
 
 .site-rule {
@@ -159,14 +177,33 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
+/* Links: coral with a faint underline (colour alone is too close to the off-white text
+   to mark a link reliably); the underline becomes solid on hover. */
 a {
-  text-decoration: none
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-faint);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
 }
 
-a>h1:hover, a>h2:hover, a>h3:hover {
-  text-decoration: underline;
-  text-decoration-color: var(--text-color);
+a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
   text-decoration-thickness: 2px;
+}
+
+/* ---------- Focus and selection ---------- */
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background-color: var(--accent-tint);
+  color: inherit;
 }
 
 .intro {
@@ -197,6 +234,11 @@ figure figcaption {
   margin-top: 0.5em;
 }
 
+.fig-label {
+  color: var(--accent);
+  font-weight: bold;
+}
+
 .figure {
   display: block;
   margin: auto;
@@ -225,6 +267,11 @@ details p {
   box-shadow: none;
   border: solid var(--text-color) var(--line-width);
   border-radius: var(--border-radius);
+  transition: border-color 0.15s;
+}
+
+.article_card > a {
+  text-decoration: none;
 }
 
 /* Make the whole card clickable, not just the title. */
@@ -234,10 +281,23 @@ details p {
   inset: 0;
 }
 
-.article_card:hover h3 {
-  text-decoration: underline;
-  text-decoration-color: var(--text-color);
-  text-decoration-thickness: 2px;
+/* Hover: only the border turns coral; the title stays plain. */
+.article_card:hover {
+  border-color: var(--accent);
+}
+
+.article_card > a:hover {
+  text-decoration: none;
+}
+
+/* Keyboard focus outlines the whole card rather than just the title. */
+.article_card > a:focus-visible {
+  outline: none;
+}
+
+.article_card:has(> a:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .article_card > p {

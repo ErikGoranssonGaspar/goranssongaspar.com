@@ -263,7 +263,7 @@ L 381.604545 150.940214
 L 380.377121 155.265097 
 L 379.149697 165.836795 
 z
-" clip-path="url(#p3bd91e8756)" style="fill: #ff7f50; fill-opacity: 0.3"/>
+" clip-path="url(#p3bd91e8756)" style="fill: #f2d46b; fill-opacity: 0.3"/>
    </g>
    <g id="matplotlib.axis_1">
     <g id="xtick_1">
@@ -1337,7 +1337,7 @@ L 511.711515 190.465362
 L 512.938939 190.785214 
 L 514.166364 190.945139 
 L 514.166364 190.945139 
-" clip-path="url(#p3bd91e8756)" style="fill: none; stroke: #e6bb12; stroke-width: 2; stroke-linecap: square"/>
+" clip-path="url(#p3bd91e8756)" style="fill: none; stroke: #f79a86; stroke-width: 2; stroke-linecap: square"/>
    </g>
    <g id="line2d_29">
     <path d="M 379.149697 165.836795 
@@ -1451,7 +1451,7 @@ L 510.484091 182.41085
 L 511.711515 182.884976 
 L 512.938939 183.52221 
 L 514.166364 184.230727 
-" clip-path="url(#p3bd91e8756)" style="fill: none; stroke: #ff7f50; stroke-width: 2; stroke-linecap: square"/>
+" clip-path="url(#p3bd91e8756)" style="fill: none; stroke: #f2d46b; stroke-width: 2; stroke-linecap: square"/>
    </g>
    <g id="patch_3">
     <path d="M 50.2 200.220833 
@@ -1909,7 +1909,7 @@ z
      <path d="M 555.8812 103.528698 
 L 566.8812 103.528698 
 L 577.8812 103.528698 
-" style="fill: none; stroke: #e6bb12; stroke-width: 2; stroke-linecap: square"/>
+" style="fill: none; stroke: #f79a86; stroke-width: 2; stroke-linecap: square"/>
     </g>
     <g id="text_9">
      <!-- True -->
@@ -1999,7 +1999,7 @@ z
      <path d="M 555.8812 118.861667 
 L 566.8812 118.861667 
 L 577.8812 118.861667 
-" style="fill: none; stroke: #ff7f50; stroke-width: 2; stroke-linecap: square"/>
+" style="fill: none; stroke: #f2d46b; stroke-width: 2; stroke-linecap: square"/>
     </g>
     <g id="text_10">
      <!-- MC Prediction -->
@@ -2256,7 +2256,7 @@ L 381.604545 376.449105
 L 380.377121 376.679514 
 L 379.149697 373.839225 
 z
-" clip-path="url(#pc32a091293)" style="fill: #ff7f50; fill-opacity: 0.3"/>
+" clip-path="url(#pc32a091293)" style="fill: #f2d46b; fill-opacity: 0.3"/>
    </g>
    <g id="matplotlib.axis_3">
     <g id="xtick_8">
@@ -2857,7 +2857,7 @@ L 511.711515 374.143863
 L 512.938939 374.409256 
 L 514.166364 374.352558 
 L 514.166364 374.352558 
-" clip-path="url(#pc32a091293)" style="fill: none; stroke: #e6bb12; stroke-width: 2; stroke-linecap: square"/>
+" clip-path="url(#pc32a091293)" style="fill: none; stroke: #f79a86; stroke-width: 2; stroke-linecap: square"/>
    </g>
    <g id="line2d_58">
     <path d="M 72.293636 357.051889 
@@ -3268,7 +3268,7 @@ L 510.484091 356.905673
 L 511.711515 356.428699 
 L 512.938939 356.228081 
 L 514.166364 356.082611 
-" clip-path="url(#pc32a091293)" style="fill: none; stroke: #ff7f50; stroke-width: 2; stroke-linecap: square"/>
+" clip-path="url(#pc32a091293)" style="fill: none; stroke: #f2d46b; stroke-width: 2; stroke-linecap: square"/>
    </g>
    <g id="patch_8">
     <path d="M 50.2 407.914167 
@@ -3329,7 +3329,7 @@ L 536.26 231.995833
      <path d="M 555.8812 302.938516 
 L 566.8812 302.938516 
 L 577.8812 302.938516 
-" style="fill: none; stroke: #e6bb12; stroke-width: 2; stroke-linecap: square"/>
+" style="fill: none; stroke: #f79a86; stroke-width: 2; stroke-linecap: square"/>
     </g>
     <g id="text_18">
      <!-- Reconstructed (full) -->
@@ -3558,7 +3558,7 @@ z
      <path d="M 555.8812 335.388516 
 L 566.8812 335.388516 
 L 577.8812 335.388516 
-" style="fill: none; stroke: #ff7f50; stroke-width: 2; stroke-linecap: square"/>
+" style="fill: none; stroke: #f2d46b; stroke-width: 2; stroke-linecap: square"/>
     </g>
     <g id="text_20">
      <!-- MC Prediction -->
@@ -3815,7 +3815,7 @@ L 381.604545 482.219943
 L 380.377121 477.168335 
 L 379.149697 464.82256 
 z
-" clip-path="url(#p332f3e3866)" style="fill: #ff7f50; fill-opacity: 0.3"/>
+" clip-path="url(#p332f3e3866)" style="fill: #f2d46b; fill-opacity: 0.3"/>
    </g>
    <g id="matplotlib.axis_5">
     <g id="xtick_15">
@@ -4624,7 +4624,7 @@ L 506.801818 597.202413
 L 511.711515 604.070806 
 L 514.166364 607.611212 
 L 514.166364 607.611212 
-" clip-path="url(#p332f3e3866)" style="fill: none; stroke: #e6bb12; stroke-width: 2; stroke-linecap: square"/>
+" clip-path="url(#p332f3e3866)" style="fill: none; stroke: #f79a86; stroke-width: 2; stroke-linecap: square"/>
    </g>
    <g id="line2d_93">
     <path d="M 72.293636 522.697952 
@@ -5032,7 +5032,7 @@ L 510.484091 527.603128
 L 511.711515 533.797995 
 L 512.938939 540.459643 
 L 514.166364 547.702063 
-" clip-path="url(#p332f3e3866)" style="fill: none; stroke: #ff7f50; stroke-width: 2; stroke-linecap: square"/>
+" clip-path="url(#p332f3e3866)" style="fill: none; stroke: #f2d46b; stroke-width: 2; stroke-linecap: square"/>
    </g>
    <g id="patch_13">
     <path d="M 50.2 615.6075 
@@ -5094,7 +5094,7 @@ L 536.26 439.689167
      <path d="M 555.8812 510.631849 
 L 566.8812 510.631849 
 L 577.8812 510.631849 
-" style="fill: none; stroke: #e6bb12; stroke-width: 2; stroke-linecap: square"/>
+" style="fill: none; stroke: #f79a86; stroke-width: 2; stroke-linecap: square"/>
     </g>
     <g id="text_37">
      <!-- Reconstructed (full) -->
@@ -5159,7 +5159,7 @@ L 577.8812 527.131849
      <path d="M 555.8812 543.081849 
 L 566.8812 543.081849 
 L 577.8812 543.081849 
-" style="fill: none; stroke: #ff7f50; stroke-width: 2; stroke-linecap: square"/>
+" style="fill: none; stroke: #f2d46b; stroke-width: 2; stroke-linecap: square"/>
     </g>
     <g id="text_39">
      <!-- MC Prediction -->
