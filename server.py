@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request, Response
 from jinja_markdown2 import MarkdownExtension
 from jinja2 import ChoiceLoader, FileSystemLoader
+import os
 from datetime import datetime
 
 import arxiv_filter
@@ -42,6 +43,17 @@ def rfc822_filter(date_str):
     """Convert ISO date string to RFC 822 format for RSS."""
     dt = datetime.strptime(date_str, "%Y-%m-%d")
     return dt.strftime("%a, %d %b %Y 00:00:00 GMT")
+
+
+@app.template_global()
+def versioned_static(filename):
+    """URL for a static file with its modification time appended (?v=...), so browsers
+    fetch the new version whenever the file changes instead of reusing a cached copy."""
+    try:
+        version = int(os.path.getmtime(os.path.join(app.static_folder, filename)))
+    except OSError:
+        version = 0
+    return url_for("static", filename=filename, v=version)
 
 
 @app.template_filter("pretty_date")

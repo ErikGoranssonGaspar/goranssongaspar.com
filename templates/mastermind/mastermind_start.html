@@ -4,9 +4,9 @@
 <title>Optimal Mastermind</title>
 <script src="https://unpkg.com/hyperscript.org@0.9.14"></script>
 <script src="https://unpkg.com/htmx.org@2.0.4"></script>
-<link rel="stylesheet" href="{{ url_for('static', filename='styles/mastermind/general.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='styles/mastermind/dropdown.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='styles/mastermind/circle.css') }}">
+<link rel="stylesheet" href="{{ versioned_static('styles/mastermind/general.css') }}">
+<link rel="stylesheet" href="{{ versioned_static('styles/mastermind/dropdown.css') }}">
+<link rel="stylesheet" href="{{ versioned_static('styles/mastermind/circle.css') }}">
 <script>
   function get_data() {
           const allowed = ['red', 'blue', 'yellow', 'green', 'orange', 'purple', 'black', 'white'];
