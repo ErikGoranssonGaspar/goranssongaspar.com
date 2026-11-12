@@ -5,13 +5,14 @@
 {% endblock %}
 
 {% block main %}
-<p style="margin-top: 1rem;">
+<p class="intro">
 Hej! I'm a Swedish master's student of <strong>mathematical statistics at Lund University</strong>. My interests center on <strong>latent process-models</strong> and <strong>Monte Carlo methods</strong>, primarily as applied to <strong>financial statistics</strong>. But I get around. On this page I write about my recent projects with less-than-publishable rigor.
 </p>
 
 {% for post in posts %}
 <article class="article_card">
   <a href="/{{ post.slug }}"><h3>{{ post.title }}</h3></a>
+  <time class="post-date" datetime="{{ post.date }}">{{ post.date | pretty_date }}</time>
   <p>
     {{ post.description }}
   </p>
@@ -20,6 +21,7 @@ Hej! I'm a Swedish master's student of <strong>mathematical statistics at Lund U
 
 <article class="article_card">
   <a href="/bachelors-thesis"><h3>Forecasting Crop Yields</h3></a>
+  <time class="post-date" datetime="2024-06">June 2024</time>
   <p>
   Regularized regression techniques allow us to improve the crop yield models of the Swedish Department of Agriculture by up to 40 %! By modeling multiple regions simultaneously, we can get even better results. This was my bachelor's thesis, written in Swedish with a summary in English.
   </p>

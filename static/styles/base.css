@@ -31,6 +31,7 @@
   background-color: var(--blackboard-green);
 
   --text-color: #E0F0E9;
+  --text-muted: rgba(224, 240, 233, 0.7);
   --pico-color: var(--text-color);
   --pico-h1-color: var(--text-color);
   --pico-h2-color: var(--text-color);
@@ -51,6 +52,135 @@
   --pico-icon-close: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(224, 240, 233)' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E");
 }
 
+/* ---------- Page layout ---------- */
+
+/* Pico drops the side padding above 576px, which left text touching the screen edge
+   on tablets and narrow windows. Keep a 1rem gutter at every width. */
+body.container {
+  max-width: calc(var(--content-max-width) + 2rem);
+  padding-inline: 1rem;
+}
+
+body > main {
+  padding-block: 0;
+}
+
+main {
+  overflow-wrap: break-word;  /* keep long URLs from widening the page */
+}
+
+/* ---------- Header ---------- */
+
+/* Name on the left, icons on the right, on one row at every width. Name and icons
+   scale with the screen on phones so they fit side by side (down to 320px wide);
+   the wrap is only a fallback for anything narrower. */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  padding: 1rem 0 0.75rem;
+}
+
+.site-name {
+  margin: 0;
+  font-size: clamp(1.1rem, 5.8vw, 2rem);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 3vw, 1.25rem);
+  font-size: clamp(1rem, 5vw, 1.75rem);  /* icon sizes are set in em, so they follow this */
+  line-height: 1.2;
+}
+
+.site-name a,
+.site-nav a,
+.site-footer a {
+  color: var(--text-color);
+}
+
+.site-name a:hover,
+.site-nav a:hover,
+.site-footer a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+/* Invisible padding enlarges the tap target without moving the icon. */
+.icon-link {
+  display: flex;
+  padding: 0.5rem;
+  margin: -0.5rem;
+}
+
+.icon-github {
+  height: 1.15em;
+}
+
+.icon-linkedin {
+  height: 1.1em;  /* the glyph only fills 7/8 of its box, so this matches the other icons visually */
+}
+
+.icon-rss {
+  height: 0.85em;
+}
+
+.icon-link:hover img {
+  filter: brightness(65%);
+}
+
+.site-rule {
+  margin: 0;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  text-align: center;
+  padding-top: 0;
+}
+
+.site-footer .site-rule {
+  margin-bottom: 1rem;
+}
+
+/* ---------- Text ---------- */
+
+hr {
+  border-top: var(--line-width) solid var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none
+}
+
+a>h1:hover, a>h2:hover, a>h3:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--text-color);
+  text-decoration-thickness: 2px;
+}
+
+.intro {
+  margin-top: 1rem;
+}
+
+/* Wide display equations scroll sideways on their own instead of widening the page. */
+mjx-container[display="true"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  padding-block: 0.2em;
+}
+
 figure {
   margin: 1em auto;
   text-align: center;
@@ -63,51 +193,8 @@ figure img {
 
 figure figcaption {
   color: var(--text-color);
-  text-align: justify;
+  text-align: left;
   margin-top: 0.5em;
-}
-
-
-main p {
-  text-align: justify;
-}
-
-
-a {
-  text-decoration: none
-}
-
-a>h1:hover, a>h2:hover, a>h3:hover {
-  text-decoration: underline; 
-  text-decoration-color: var(--text-color);
-  text-decoration-thickness: 2px;
-}
-
-#github_logo:hover {
-  filter: brightness(65%);
-}
-
-#rss_logo:hover {
-  filter: brightness(65%);
-}
-
-hr {
-  border-top: var(--line-width) solid var(--text-color);
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
-}
-
-.article_card {
-  background-color: rgba(0, 0, 0, 0);
-  box-shadow: none;
-  border: solid var(--text-color) var(--line-width); 
-  border-radius: var(--border-radius);
-}
-
-.article_card > p {
-  margin: 0;
 }
 
 .figure {
@@ -116,12 +203,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .article_body h2, .article_body h3 {
-margin-top: 1rem;
-margin-bottom: 0.5rem;
-}
-
-.article_card h2, .article_card h3 {
-margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 details {
@@ -132,4 +215,48 @@ details {
 
 details p {
   margin-bottom: 0;
+}
+
+/* ---------- Post cards ---------- */
+
+.article_card {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: none;
+  border: solid var(--text-color) var(--line-width);
+  border-radius: var(--border-radius);
+}
+
+/* Make the whole card clickable, not just the title. */
+.article_card > a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.article_card:hover h3 {
+  text-decoration: underline;
+  text-decoration-color: var(--text-color);
+  text-decoration-thickness: 2px;
+}
+
+.article_card > p {
+  margin: 0;
+}
+
+.article_card h2, .article_card h3 {
+  margin-bottom: 0.25rem;
+}
+
+.post-date {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875em;
+  color: var(--text-muted);
+}
+
+@media (max-width: 575px) {
+  .article_card h3 {
+    font-size: 1.3rem;
+  }
 }

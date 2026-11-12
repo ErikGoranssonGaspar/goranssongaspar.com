@@ -2,6 +2,7 @@
 <html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='icon/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='icon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='icon/favicon-16x16.png') }}">
@@ -30,35 +31,32 @@
     {% endblock %}
   </head>
 
-  <body class="container" style="max-width: var(--content-max-width);">
-    <header style="display: flex; margin-top: 1rem;">
-      <div style="flex: 1;">
-        <h1 style="display: inline;">Erik Göransson-Gaspar</h1>
-      </div>
-      <a href='/' style="margin: 0 .8rem 0 .4rem; padding-top:5px;">
-        <h2 style="display:inline; margin: 0;">Articles</h2>
-      </a>
-      <a href='{{url_for('static', filename='doc/CV.pdf')}}' style="margin: 0 .4rem 0 .4rem; padding-top:5px;">
-        <h2 style="display:inline; margin: 0;">CV</h2>
-      </a>
-      <a href='https://github.com/ErikGoranssonGaspar' target="_blank" rel="noopener noreferrer">
-        <img id="github_logo" style="width:2.1rem; vertical-align: top; margin: 0 .8rem;" src="{{url_for('static', filename='github.svg')}}">
-      </a>
-      <a href="{{ url_for('rss_feed') }}" style="display: inline-flex; align-items: center;">
-        <img id="rss_logo" style="width:1.5rem; vertical-align: middle; margin: 0 .8rem;" src="{{url_for('static', filename='rss.svg')}}">
-      </a>
+  <body class="container">
+    <header class="site-header">
+      <h1 class="site-name"><a href="/">Erik Göransson-Gaspar</a></h1>
+      <nav class="site-nav" aria-label="Main">
+        <a class="icon-link" href="https://www.linkedin.com/in/erik-goransson/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <img class="icon-linkedin" src="{{ url_for('static', filename='linkedin.svg') }}" alt="">
+        </a>
+        <a class="icon-link" href="https://github.com/ErikGoranssonGaspar" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <img class="icon-github" src="{{ url_for('static', filename='github.svg') }}" alt="">
+        </a>
+        <a class="icon-link" href="{{ url_for('rss_feed') }}" aria-label="RSS feed">
+          <img class="icon-rss" src="{{ url_for('static', filename='rss.svg') }}" alt="">
+        </a>
+      </nav>
     </header>
-    
-    <hr style="margin: 0;">
 
-    <main style="padding-bottom: 0; padding-top: 0;">
+    <hr class="site-rule">
+
+    <main>
       {% block main %}
       {% endblock %}
     </main>
-    
-    <footer style="text-align: center; padding-top: 0;">
-      <hr style="margin-top: 0;">
-      <p>erikedwardgoransson@gmail.com</p>
+
+    <footer class="site-footer">
+      <hr class="site-rule">
+      <p><a href="mailto:erikedwardgoransson@gmail.com">erikedwardgoransson@gmail.com</a></p>
     </footer>
   </body>
 </html>

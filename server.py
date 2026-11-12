@@ -44,6 +44,13 @@ def rfc822_filter(date_str):
     return dt.strftime("%a, %d %b %Y 00:00:00 GMT")
 
 
+@app.template_filter("pretty_date")
+def pretty_date_filter(date_str):
+    """Convert ISO date string to a human-readable date, e.g. '13 July 2026'."""
+    dt = datetime.strptime(date_str, "%Y-%m-%d")
+    return f"{dt.day} {dt:%B %Y}"
+
+
 @app.route("/")
 def index():
     return render_template("index.html", posts=POSTS)
