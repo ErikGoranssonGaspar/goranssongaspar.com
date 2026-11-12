@@ -30,8 +30,10 @@ def setup_matplotlib_style():
     """Configure matplotlib rcParams for website styling."""
     plt.rcParams.update({
         # Font settings
-        'font.family': 'serif',
-        'font.serif': ['CMU Serif', 'DejaVu Serif', 'serif'],
+        # Alegreya Sans matches the website; install it locally (Google Fonts) for matplotlib
+        # to find it. Lining figures look better on axes: the existing SVGs use them.
+        'font.family': 'sans-serif',
+        'font.sans-serif': ['Alegreya Sans', 'DejaVu Sans', 'sans-serif'],
         'axes.titlesize': FONT_SIZES['title'],
         'axes.labelsize': FONT_SIZES['label'],
         'xtick.labelsize': FONT_SIZES['tick'],

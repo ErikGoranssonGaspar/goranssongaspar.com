@@ -48,7 +48,7 @@ tertiary_color = COLORS['tertiary']   # #5fb3b3
 
 ### Typography
 
-- **Font Family**: CMU Serif (Computer Modern Unicode Serif)
+- **Font Family**: Alegreya Sans, the website's body font (lining figures for numbers)
 - **Font Sizes**:
   - Title: 16pt
   - Axis labels: 14pt  
@@ -343,14 +343,15 @@ This centers figures while keeping captions left-aligned.
 ### Minus Sign Fix
 The style module sets `axes.unicode_minus: False` to prevent rendering issues with minus signs in some environments.
 
-### Font Loading
-CMU Serif should be loaded via `@font-face` in `base.css`:
-```css
-@font-face {
-  font-family: 'CMU Serif';
-  src: url('/static/fonts/cmunrm.ttf') format('truetype');
-}
-```
+### Fonts
+Figures are saved with `svg.fonttype = 'path'`, so text is embedded as glyph outlines and
+the SVG does not depend on any web font. For matplotlib to use Alegreya Sans it must be
+installed locally (download it from Google Fonts). The website itself loads Alegreya Sans
+via `@font-face` in `static/styles/base.css`.
+
+The figures currently on the site were originally rendered in CMU Serif; their glyph outlines
+were later swapped to Alegreya Sans (with lining figures) by post-processing the SVGs, so
+regenerated figures will look the same once Alegreya Sans is installed.
 
 ## Questions?
 
